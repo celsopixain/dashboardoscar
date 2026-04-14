@@ -76,6 +76,12 @@ Abra [http://localhost:3000](http://localhost:3000) no navegador.
 
 ---
 
+## Demo
+
+**[https://dashboardoscar.vercel.app/](https://dashboardoscar.vercel.app/)**
+
+---
+
 ## Deploy
 
 O projeto está configurado para deploy no Vercel. Basta conectar o repositório e adicionar a variável `DATABASE_URL` nas configurações de ambiente.
