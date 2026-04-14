@@ -15,8 +15,32 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Awards Analytics Dashboard",
-  description: "Dashboard interativo com histórico completo do Oscar e The Game Awards",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_APP_URL ?? "https://dashboardoscar.vercel.app"
+  ),
+  title: {
+    default: "Awards Analytics Dashboard",
+    template: "%s · Awards Analytics",
+  },
+  description:
+    "Dashboard interativo com histórico completo do Oscar (1927–2024) e The Game Awards (2014–2024). Explore indicações, vencedores e tendências.",
+  keywords: ["Oscar", "Academy Awards", "The Game Awards", "cinema", "games", "premiação"],
+  authors: [{ name: "Awards Analytics" }],
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    siteName: "Awards Analytics Dashboard",
+    title: "Awards Analytics Dashboard",
+    description:
+      "Explore ~100 anos do Oscar e 12 anos do The Game Awards em um único painel interativo.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Awards Analytics Dashboard",
+    description:
+      "Explore ~100 anos do Oscar e 12 anos do The Game Awards em um único painel interativo.",
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({

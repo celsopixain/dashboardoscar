@@ -34,20 +34,7 @@ export function CeremonyTimeline() {
 
   const { data: items, isPending } = useQuery<OscarItem[]>({
     queryKey: ["oscar-years"],
-    queryFn: () =>
-      fetch("/api/oscars?pageSize=100&page=1")
-        .then((r) => r.json())
-        .then((res) => {
-          const seen = new Set<number>();
-          const unique: OscarItem[] = [];
-          for (const item of res.data as OscarItem[]) {
-            if (item.year && !seen.has(item.year)) {
-              seen.add(item.year);
-              unique.push({ year: item.year, ceremony: item.ceremony });
-            }
-          }
-          return unique.sort((a, b) => a.year - b.year);
-        }),
+    queryFn: () => fetch("/api/oscars/years").then((r) => r.json()),
     staleTime: Infinity,
   });
 

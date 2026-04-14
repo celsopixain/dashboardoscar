@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { prisma } from "@/lib/db";
 
-const VALID_TYPES = ["top-winners", "by-decade", "by-class", "top-studios", "goty"] as const;
+const VALID_TYPES = ["top-winners", "top-films", "by-decade", "by-class", "top-studios", "goty"] as const;
 type ChartType = (typeof VALID_TYPES)[number];
 
 const querySchema = z.object({
@@ -83,6 +83,30 @@ async function byClass() {
   }));
 }
 
+async function topFilms(limit: number) {
+  const rows = await prisma.academyAward.groupBy({
+    by: ["film"],
+    where: { film: { not: null } },
+    _count: { id: true },
+    orderBy: { _count: { id: "desc" } },
+    take: limit,
+  });
+
+  const winners = await prisma.academyAward.groupBy({
+    by: ["film"],
+    where: { winner: true, film: { not: null } },
+    _count: { id: true },
+  });
+
+  const winsMap = new Map(winners.map((w) => [w.film, w._count.id]));
+
+  return rows.map((r) => ({
+    film: r.film,
+    nominations: r._count.id,
+    wins: winsMap.get(r.film ?? "") ?? 0,
+  }));
+}
+
 async function topStudios(limit: number) {
   // Studios TGA com mais vitórias
   const rows = await prisma.gameAward.groupBy({
@@ -145,6 +169,8 @@ export async function GET(
   switch (type as ChartType) {
     case "top-winners":
       return NextResponse.json({ type, data: await topWinners(limit) });
+    case "top-films":
+      return NextResponse.json({ type, data: await topFilms(limit) });
     case "by-decade":
       return NextResponse.json({ type, data: await byDecade() });
     case "by-class":

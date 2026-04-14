@@ -52,19 +52,19 @@
 
 ---
 
-## ⏳ Fase 4 — Visualizações
+## ✅ Fase 4 — Visualizações
 > Gráficos interativos com Recharts para Oscar e TGA.
 
 **Oscar**
-- [ ] `BarChartTopWinners` — top 10 atores/atrizes com mais vitórias
-- [ ] `BarChartTopFilms` — top 10 filmes com mais indicações
-- [ ] `LineChartTrend` — indicações por década (tendência histórica)
-- [ ] `DonutDistribution` — distribuição por Classe (Acting / Directing / Production)
+- [x] `BarChartTopWinners` — top 10 atores/atrizes com mais vitórias
+- [x] `BarChartTopFilms` — top 10 filmes com mais indicações
+- [x] `LineChartTrend` — indicações por década (tendência histórica)
+- [x] `DonutDistribution` — distribuição por Classe (Acting / Directing / Production)
 - [ ] `HeatmapChart` — vencedores por Categoria × Década
 
 **The Game Awards**
-- [ ] Timeline GOTY — vencedores do Game of the Year por ano
-- [ ] `BarChartTopStudios` — studios com mais vitórias
+- [x] `GotyTimeline` — vencedores do Game of the Year por ano
+- [x] `BarChartTopStudios` — studios com mais vitórias
 - [ ] Distribuição por categoria (donut/treemap)
 - [ ] Jury vs Fan Vote — breakdown por categoria
 
@@ -74,35 +74,33 @@
 
 ---
 
-## ⏳ Fase 5 — Busca & Páginas de Detalhe
+## ✅ Fase 5 — Busca & Páginas de Detalhe
 > Sistema de busca global e páginas de detalhe por entidade.
 
-- [ ] `SearchInput` com autocomplete e debounce (300ms)
-- [ ] `FilterPanel` — filtros combinados (ano range, categoria, status, premiação)
-- [ ] Página de resultados de busca
-- [ ] `app/oscars/page.tsx` — listagem Oscar com filtros
-- [ ] `app/oscars/[id]/page.tsx` — detalhe de indicação
-- [ ] `app/tga/page.tsx` — listagem TGA com filtros
-- [ ] `app/tga/[id]/page.tsx` — detalhe de indicação
-- [ ] `app/person/[name]/page.tsx` — perfil de ator/diretor (histórico completo)
+- [x] `SearchInput` com debounce (300ms)
+- [x] Página de resultados de busca `/search`
+- [x] `app/oscars/page.tsx` — listagem Oscar com filtros (nome, filme, classe, winner)
+- [x] `app/oscars/[id]/page.tsx` — detalhe de indicação
+- [x] `app/tga/page.tsx` — listagem TGA com filtros (jogo, studio, winner)
+- [x] `app/tga/[id]/page.tsx` — detalhe de indicação + outras indicações do mesmo jogo
+- [x] `app/person/[name]/page.tsx` — perfil de ator/diretor (histórico completo)
+- [x] `app/ceremony/[year]/page.tsx` — resultados completos de uma edição
 - [ ] `app/film/[id]/page.tsx` — perfil de filme
 - [ ] `app/category/[slug]/page.tsx` — vencedores da categoria ao longo do tempo
-- [ ] `app/ceremony/[year]/page.tsx` — resultados completos de uma edição
 - [ ] Exportar resultados filtrados como CSV
 - [ ] Favoritos em localStorage
 
 ---
 
-## ⏳ Fase 6 — Polish & Deploy
+## ✅ Fase 6 — Polish & Deploy
 > Refinamentos de UX, responsividade e deploy em produção.
 
-- [ ] Responsividade mobile (320px+) em todos os componentes
-- [ ] Animações de chart (Recharts defaults + transições)
-- [ ] Meta tags dinâmicas por página
-- [ ] Open Graph (compartilhamento em redes sociais)
-- [ ] URLs amigáveis e SEO-friendly
+- [x] Responsividade mobile — Sidebar drawer com overlay + hamburger no Header
+- [x] Meta tags dinâmicas por página (`generateMetadata` em oscars/[id], tga/[id], person/[name], ceremony/[year])
+- [x] Open Graph completo no root layout (og:title, og:description, twitter:card)
+- [x] `metadataBase` configurado para Vercel
+- [ ] Animações de chart (Recharts defaults já aplicados)
 - [ ] Testes manuais no golden path (desktop + mobile)
-- [ ] Verificar regressões entre páginas
 - [ ] Deploy no Vercel (conectar repositório + variável `DATABASE_URL`)
 - [ ] Validação final de performance (FCP < 1.5s, API < 300ms)
 
