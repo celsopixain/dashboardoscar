@@ -9,7 +9,7 @@ import { useUIStore } from "@/lib/stores/ui";
 const navItems = [
   { href: "/", label: "Home", icon: Home },
   { href: "/oscars", label: "Oscar", icon: Film },
-  { href: "/tga", label: "Game Awards", icon: Gamepad2 },
+  { href: "/tga", label: "Prêmio do Jogo", icon: Gamepad2 },
   { href: "/charts", label: "Visualizações", icon: BarChart3 },
   { href: "/search", label: "Busca", icon: Search },
 ];
@@ -42,9 +42,9 @@ export function Sidebar() {
         <div className="flex h-16 items-center gap-2 border-b border-border px-5">
           <Trophy className="h-5 w-5 text-sidebar-primary" />
           <span className="text-sm font-semibold text-sidebar-foreground leading-tight flex-1">
-            Awards
+            Análise de
             <br />
-            <span className="font-normal text-muted-foreground text-xs">Analytics</span>
+            <span className="font-normal text-muted-foreground text-xs">Premiações</span>
           </span>
           <button
             onClick={closeSidebar}
