@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Awards Analytics Dashboard
 
-## Getting Started
+Dashboard web interativo com histórico completo do **Academy Awards (Oscars)** — quase 100 anos de dados — e do **The Game Awards**, permitindo exploração visual, busca avançada e análises comparativas entre as duas premiações.
 
-First, run the development server:
+---
+
+## Stack
+
+- **Framework:** Next.js 15 (App Router)
+- **Linguagem:** TypeScript 5
+- **Styling:** Tailwind CSS 4 + shadcn/ui
+- **Gráficos:** Recharts
+- **Tabelas:** TanStack Table
+- **Data Fetching:** TanStack Query
+- **URL State:** nuqs
+- **Estado Global:** Zustand
+- **ORM:** Prisma 7 + adapter pg
+- **Banco de Dados:** PostgreSQL (Neon)
+- **Validação:** Zod
+- **Deploy:** Vercel
+
+---
+
+## Pré-requisitos
+
+- Node.js 20+
+- Conta no [Neon](https://neon.tech) (PostgreSQL gratuito)
+
+---
+
+## Instalação
 
 ```bash
+# Instalar dependências
+npm install
+
+# Configurar variáveis de ambiente
+# Editar .env com sua DATABASE_URL do Neon
+DATABASE_URL="postgresql://user:password@host/db?sslmode=require"
+
+# Criar tabelas no banco
+npm run db:push
+
+# Importar dados dos CSVs
+npm run db:import
+
+# Iniciar servidor de desenvolvimento
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) no navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Scripts Disponíveis
 
-## Learn More
+| Comando | Descrição |
+|---------|-----------|
+| `npm run dev` | Servidor de desenvolvimento |
+| `npm run build` | Build de produção |
+| `npm run start` | Servidor de produção |
+| `npm run db:generate` | Gerar Prisma Client |
+| `npm run db:push` | Sincronizar schema com o banco |
+| `npm run db:migrate` | Criar migration |
+| `npm run db:import` | Importar CSVs para o banco |
+| `npm run db:studio` | Abrir Prisma Studio |
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Dados
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Dataset | Arquivo | Registros | Período |
+|---------|---------|-----------|---------|
+| Academy Awards | `data/full_data.csv` | ~12.014 | 1927–presente |
+| The Game Awards | `data/the_game_awards.csv` | ~805 | 2014–presente |
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+O projeto está configurado para deploy no Vercel. Basta conectar o repositório e adicionar a variável `DATABASE_URL` nas configurações de ambiente.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)

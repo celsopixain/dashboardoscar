@@ -6,12 +6,17 @@
  * TGA    → data/the_game_awards.csv (CSV — comma-separated)
  */
 
+import "dotenv/config";
 import fs from "fs";
 import path from "path";
 import csv from "csv-parser";
-import { PrismaClient } from "../app/generated/prisma";
+import { Pool } from "pg";
+import { PrismaPg } from "@prisma/adapter-pg";
+import { PrismaClient } from "../app/generated/prisma/client";
 
-const prisma = new PrismaClient();
+const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+const adapter = new PrismaPg(pool);
+const prisma = new PrismaClient({ adapter });
 
 // ─── helpers ────────────────────────────────────────────────────────────────
 
