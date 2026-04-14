@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { Header } from "@/components/layout/Header";
 import { BarChartTopWinners } from "@/components/charts/BarChartTopWinners";
 import { BarChartTopFilms } from "@/components/charts/BarChartTopFilms";
