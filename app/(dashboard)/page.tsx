@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Header } from "@/components/layout/Header";
 import { StatsCards } from "@/components/dashboard/StatsCards";
 import { CeremonyTimeline } from "@/components/dashboard/CeremonyTimeline";
@@ -34,7 +35,9 @@ export default function HomePage() {
             Linha do Tempo — Oscar
           </h2>
           <div className="rounded-lg border border-border bg-card p-5">
-            <CeremonyTimeline />
+            <Suspense>
+              <CeremonyTimeline />
+            </Suspense>
           </div>
         </section>
 
