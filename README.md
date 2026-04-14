@@ -80,6 +80,8 @@ Abra [http://localhost:3000](http://localhost:3000) no navegador.
 
 **[https://dashboardoscar.vercel.app/](https://dashboardoscar.vercel.app/)**
 
+![Awards Analytics Dashboard](data/home.png)
+
 ---
 
 ## Deploy
