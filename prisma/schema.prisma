@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model AcademyAward {
+  id                Int      @id @default(autoincrement())
+  ceremony          Int?
+  year              Int?
+  yearRaw           String?  @map("year_raw")
+  class             String?
+  canonicalCategory String?  @map("canonical_category")
+  category          String?
+  nomId             String?  @map("nom_id")
+  film              String?
+  filmId            String?  @map("film_id")
+  nomineeName       String?  @map("nominee_name")
+  nomineeIds        String?  @map("nominee_ids")
+  winner            Boolean? @default(false)
+  detail            String?
+  note              String?
+  citation          String?
+  multiFilm         Boolean? @default(false) @map("multi_film")
+  createdAt         DateTime @default(now()) @map("created_at")
+
+  @@index([year])
+  @@index([winner])
+  @@index([canonicalCategory])
+  @@index([film])
+  @@index([nomineeName])
+  @@map("academy_awards")
+}
+
+model GameAward {
+  id       Int      @id @default(autoincrement())
+  year     Int?
+  category String?
+  nominee  String?
+  company  String?
+  winner   Boolean? @default(false)
+  voted    String?
+
+  @@index([year])
+  @@index([winner])
+  @@index([category])
+  @@index([company])
+  @@map("game_awards")
+}
