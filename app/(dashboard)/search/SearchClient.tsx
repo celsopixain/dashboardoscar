@@ -176,7 +176,7 @@ export function SearchClient() {
             {tgaResults && tgaResults.data.length > 0 && (
               <section>
                 <h2 className="mb-3 flex items-center gap-2 text-sm font-semibold">
-                  <Gamepad2 className="h-4 w-4" /> The Game Awards
+                  <Gamepad2 className="h-4 w-4" /> Prêmio do Jogo
                   <Badge variant="secondary" className="text-[10px]">
                     {tgaResults.total.toLocaleString("pt-BR")}
                   </Badge>

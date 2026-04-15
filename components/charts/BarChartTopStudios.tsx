@@ -39,7 +39,7 @@ export function BarChartTopStudios() {
   return (
     <Card>
       <CardHeader className="pb-2">
-        <CardTitle className="text-sm font-semibold">Top Studios — The Game Awards</CardTitle>
+        <CardTitle className="text-sm font-semibold">Top Studios — Prêmio do Jogo</CardTitle>
         <p className="text-xs text-muted-foreground">Studios com mais vitórias</p>
       </CardHeader>
       <CardContent className="pt-0">

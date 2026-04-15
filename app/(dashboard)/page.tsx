@@ -16,8 +16,8 @@ export default function HomePage() {
   return (
     <div className="flex flex-col">
       <Header
-        title="Awards Analytics Dashboard"
-        description="Histórico completo do Oscar e The Game Awards"
+        title="Dashboard de Premiações"
+        description="Histórico completo do Oscar e Prêmio do Jogo"
       />
 
       <div className="flex-1 space-y-8 p-6">
@@ -65,7 +65,7 @@ export default function HomePage() {
         {/* TGA charts */}
         <section>
           <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-            Visualizações — The Game Awards
+            Visualizações — Prêmio do Jogo
           </h2>
           <div className="grid gap-4 lg:grid-cols-2">
             <GotyTimeline />

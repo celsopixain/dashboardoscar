@@ -49,7 +49,7 @@ export function TgaClient() {
 
   return (
     <div className="flex flex-col">
-      <Header title="The Game Awards" description="Todas as indicações do TGA" />
+      <Header title="Prêmio do Jogo" description="Todas as indicações do Prêmio do Jogo" />
 
       <div className="flex-1 p-6 space-y-4">
         {/* Filters */}
